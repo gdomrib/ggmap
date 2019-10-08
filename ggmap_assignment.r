@@ -1,11 +1,17 @@
 "
 Once you have downloaded the file, copy and paste the information that you need in a new Excel file
 Save it as a .csv and import it to R Studio
-Install the package: ggmap
+If necessary,install the packages ggmap and ggplot2
 Load the packages: ggplot2 and ggmap
-Have a look at the distribution of your data: which map scale suits your needs? The code for displaying the map is (change the zoom if you need):
+Have a look at the distribution of your data: which map scale suits your needs? 
 "
+install.packages("ggmap")
+install.packages("ggplot2")
 
+library(ggmap)
+library(ggplot2)
+
+# The code for displaying the map we need is (change the zoom if you need):
 ggmap(get_map(location = 'Europe',  
               zoom = 3))
  
@@ -13,7 +19,6 @@ ggmap(get_map(location = 'Europe',
 ggmap(get_map(location = 'Europe',  
               maptype = 'satellite',  
               zoom = 3))
-
 
  
 #  There are faster ways to get the maps, such as (this one doesn't show the latitude and longitude axis):
@@ -25,7 +30,7 @@ europe <-
   ggmap(get_map(location = 'Europe',  
                         zoom = 3))
 
-europesat <-  
+europeSat <-  
   ggmap(get_map(location = 'Europe',  
                 maptype = 'satellite',  
                 zoom = 3))
@@ -68,11 +73,11 @@ europe +
 
 # As we can see, there is a concentration of ports and harbours in the Aegean Sea and the Italian Peninsula. 
 # Thus, I considered that it could be very useful to zoom in that particular area:
-greeceitaly <-  
+greeceItaly <-  
   ggmap(get_map(location = 'Greece',  
                 zoom = 5))
 
-greeceitalysat <-  
+greeceItalySat <-  
 ggmap(get_map(location = 'Greece',  
               maptype = 'satellite',  
               zoom = 5))
@@ -97,6 +102,6 @@ europe +
   theme(title = element_text(size=12))
 
 "
-If we had other observations on the ports, it will be possible to improve the visualisation (e. g. the size of each port to depict different point sizes).
-Moreover, if you wanted to publish the maps you could use packages such as GISTools or prettymapr and to add a scale and a north arrow.
+If we had other observations on the ports, it would be possible to improve the visualisation (e. g. the size of each port to depict different point sizes).
+Moreover, if you wanted to publish the maps you could use packages such as GISTools or prettymapr to add a scale and a north arrow.
 "
