@@ -5,11 +5,11 @@ If necessary,install the packages ggmap and ggplot2
 Load the packages: ggplot2 and ggmap
 Have a look at the distribution of your data: which map scale suits your needs? 
 "
-install.packages("ggmap")
-install.packages("ggplot2")
 
+install.packages("ggmap")
+
+# ggmap automatically loads ggplot2
 library(ggmap)
-library(ggplot2)
 
 # The code for displaying the map we need is (change the zoom if you need):
 ggmap(get_map(location = 'Europe',  
