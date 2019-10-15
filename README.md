@@ -7,6 +7,7 @@ While working in R Studio with data that has a spatial reference, it can be extr
  
 In order to do it, I have used data from <a href="https://darmc.harvard.edu">'The Digital Atlas of Roman and Medieval Civilizations (DARMC)'</a>. It is a project hold by Harvard University and its aim is to provide "freely available on the internet the best available materials for a Geographic Information Systems (GIS) approach to mapping and spatial analysis of the Roman and medieval worlds". From the data available, I have been working with the Geodatabase of Ancient Ports and Harbors (version 1.1) (A. de Graauw, 2014).
 
-You will use <a href="http://maps.stamen.com">Stamen Maps</a> and <a href="https://www.google.com/maps">Google Maps</a>. Please note that Google has changed its <a href="https://developers.google.com/maps/documentation/geocoding/usage-and-billing">Geocoding API Usage</a>.
-
-<img src="./images/AegeanTurkey_Kernel.jpeg" width="700" height="400" align="center"/>
+You will use <a href="http://maps.stamen.com">Stamen Maps</a> and <a href="https://www.google.com/maps">Google Maps</a>. Please note that Google has changed its <a href="https://developers.google.com/maps/documentation/geocoding/usage-and-billing">Geocoding API Usage</a>.  
+</br>
+</br>
+<img src="./images/AegeanTurkey_Kernel.jpeg" width="700" height="400" style="vertical-align:middle"/>
