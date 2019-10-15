@@ -15,5 +15,5 @@ You will use <a href="http://maps.stamen.com">Stamen Maps</a> and <a href="https
 </p>
 
 <p align="center">
- <i> 2D Kernel Density Estimation - Ancient Ports and Harbours in the Aegean Coast of Turkey</i>
+ <i> Example: 2D Kernel Density Estimation - Ancient Ports and Harbours in the Aegean Coast of Turkey</i>
 </p> 
