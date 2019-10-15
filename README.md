@@ -10,4 +10,10 @@ In order to do it, I have used data from <a href="https://darmc.harvard.edu">'Th
 You will use <a href="http://maps.stamen.com">Stamen Maps</a> and <a href="https://www.google.com/maps">Google Maps</a>. Please note that Google has changed its <a href="https://developers.google.com/maps/documentation/geocoding/usage-and-billing">Geocoding API Usage</a>.  
 </br>
 </br>
-<img src="./images/AegeanTurkey_Kernel.jpeg" width="770" height="450" style="vertical-align:middle"/>
+<p align="center">
+ <img src="./images/AegeanTurkey_Kernel.jpeg" width="770" height="450" align="middle"/>
+</p>
+
+<p align="center">
+ <i> 2D Kernel Density Estimation - Ancient Ports and Harbours in the Aegean Coast of Turkey</i>
+</p> 
