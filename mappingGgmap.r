@@ -10,8 +10,88 @@ install.packages("ggmap")
 
 # ggmap automatically loads ggplot2
 library(ggmap)
+library(readr)
 
-# The code for displaying the map we need is (change the zoom if you need):
+ancient_ports <- read_delim("YourUsername/MappingWithGgmap/ancient_ports.csv",  
+                            ";", escape_double = FALSE, col_types = cols(latitude = col_number(),  
+                                                                         longitude = col_number()),  
+                            trim_ws = TRUE)
+View(ancient_ports)
+
+
+"
+Stamen maps
+"
+
+# MEDITERRANEAN SEA - map all ports and harbours
+mediterranean <- c(left = -9, bottom = 25, right = 40, top = 55)
+mediterranean_map <- ggmap(get_stamenmap(mediterranean, zoom = 5, maptype = "terrain-background", color = "bw"))
+
+mediterranean_map +  
+  geom_point(aes(x=longitude, y=latitude),  
+             data=ancient_ports,  
+             show.legend = FALSE,  
+             col='darkred',  
+             alpha=0.2,  
+             size=2) 
+  
+
+# GREECE
+# this time we will work with toner maps, which show political boundaries and major roads
+
+greece <- c(left = 18, bottom = 35, right = 30, top = 43)
+greece_map <- ggmap(get_stamenmap(greece, zoom = 7, maptype = "toner-lite"))
+
+
+greece_map + 
+  geom_density2d(aes(x = longitude, y = latitude), ancient_ports, colour = "blue", alpha = 0.25) + 
+  stat_density2d(aes(x = longitude, y = latitude, fill = ..level.., alpha = ..level..),  
+                 ancient_ports,  
+                 size = 0.01,  
+                 bins = 16,  
+                 geom = "polygon") + 
+  scale_fill_gradient2(low = "white", mid = "yellow", high = "red") + 
+  scale_alpha(range = c(0.00, 0.25), guide = FALSE) + 
+  theme(legend.position = "none")
+
+
+
+# AEGEAN COAST OF TURKEY
+
+aegean <- c(left = 26, bottom = 37, right = 28, top = 38)
+aegean_map <- ggmap(get_stamenmap(aegean, maptype = "terrain-background"))
+aegean_map
+
+
+aegeanTurkey <- 
+  aegean_map + 
+  geom_point(aes(x = longitude, y = latitude), ancient_ports, size = 1) + 
+  #geom_density2d(aes(x = longitude, y = latitude), ancient_ports) + 
+  stat_density2d(aes(x = longitude, y = latitude, fill = ..level.., alpha = ..level..),  
+                 ancient_ports,  
+                 size = 0.01,  
+                 bins = 16,  
+                 geom = "polygon") + 
+  scale_fill_gradient2(low = "white", mid = "white", high = "red") + 
+  scale_alpha(range = c(0.00, 0.25), guide = FALSE) 
+
+
+
+# save the last plot
+
+jpeg("AegeanTurkey_Kernel.jpeg", width = 11, height = 6, units = 'in', res = 500)
+aegeanTurkey
+dev.off()
+
+
+
+
+
+"
+Google maps
+"
+
+# The code for displaying the map we need is:
 ggmap(get_map(location = 'Europe',  
               zoom = 3))
  
@@ -48,7 +128,7 @@ europe +
  
 
 # From now on, you choose how to use ggplot2 and the combinations that you want to do with ggmap.
-# According to the variables in my data, the most appropriate were the following:
+# According to the variables in my data, the most appropriate were the following
 # Density: shows where most of the points are concentrated
  
 europe +  
